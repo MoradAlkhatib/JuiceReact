@@ -71,7 +71,7 @@ export class Favorite extends Component {
     };
     axios
       .put(
-        `${process.env.REACT_APP_HEROKU}/update-fav/${this.state.index}`,
+        `https://juicepine.herokuapp.com/update-fav/${this.state.index}`,
         bodyJuice
       )
       .then((response) => {
