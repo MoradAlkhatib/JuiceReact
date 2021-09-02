@@ -4,6 +4,7 @@ import axios from "axios";
 import { Row } from "react-bootstrap";
 import Cardfavorite from "./Cardfavorite";
 import Modalfavorite from "./Modalfavorite";
+import Swal from "sweetalert2";
 export class Favorite extends Component {
   constructor() {
     super();
@@ -22,7 +23,6 @@ export class Favorite extends Component {
         `https://juicepine.herokuapp.com/favorite/${this.props.auth0.user.email}`
       )
       .then((response) => {
-        console.log(response.data);
         this.setState({
           allJuice: response.data,
         });
@@ -43,12 +43,11 @@ export class Favorite extends Component {
     axios
       .delete(`https://juicepine.herokuapp.com/delete-fav/${id}`)
       .then((response) => {
-        console.log(response.data);
+        Swal.fire("Delete Item Successfully");
       });
   }
 
   showUpdate = (id) => {
-    console.log(id);
     this.setState({
       showModal: true,
       index: id,
@@ -71,11 +70,14 @@ export class Favorite extends Component {
     };
     axios
       .put(
-        `https://juicepine.herokuapp.com/update-fav/${this.state.index}`,
+        `${process.env.REACT_APP_HEROKU}/update-fav/${this.state.index}`,
         bodyJuice
       )
       .then((response) => {
-        console.log(response.data);
+        Swal.fire(response.data.message);
+        this.setState({
+          showModal: false,
+        });
       });
   };
 
