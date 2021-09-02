@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Card, Button, Row, Col, Alert } from "react-bootstrap";
+import { Card, Button, Row, Col, Alert,Container } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
 import Swal from "sweetalert2";
 class Juice extends Component {
@@ -33,7 +33,8 @@ class Juice extends Component {
 
   render() {
     return (
-      <Row>
+     <Container>
+        <Row>
         {this.props.auth0.isAuthenticated && (
           <Alert style={{ textAlign: "center" }} variant="success">
             Welcome {this.props.auth0.user.name}
@@ -41,7 +42,7 @@ class Juice extends Component {
         )}
         {this.state.allJuice.map((item, ind) => {
           return (
-            <Col lg={4} key={ind}>
+            <Col lg={4} sm={12} key={ind}>
               {" "}
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={item.image} />
@@ -62,6 +63,7 @@ class Juice extends Component {
           );
         })}
       </Row>
+     </Container>
     );
   }
 }

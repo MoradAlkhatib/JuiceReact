@@ -6,10 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Juice from "./components/Juice";
 import { withAuth0 } from "@auth0/auth0-react";
 import Favorite from "./components/Favorite";
+import { Container } from "react-bootstrap";
 export class App extends Component {
   render() {
     return (
-      <div>
+      <Container>
         <BrowserRouter>
         <Header />
         <Switch>
@@ -26,7 +27,7 @@ export class App extends Component {
         
         </BrowserRouter>
         
-      </div>
+      </Container>
     );
   }
 }
