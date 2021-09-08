@@ -3,7 +3,7 @@ import { Card, Button ,Col } from 'react-bootstrap'
 export class Cardfavorite extends Component {
     render() {
         return (
-            <Col lg={4} key={this.props.index}>
+            <Col lg={4} md={6} sm={12} key={this.props.index}>
             {" "}
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={this.props.item.juiceUrl} />
