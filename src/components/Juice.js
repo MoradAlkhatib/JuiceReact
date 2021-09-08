@@ -42,7 +42,7 @@ class Juice extends Component {
         )}
         {this.state.allJuice.map((item, ind) => {
           return (
-            <Col lg={4} sm={12} key={ind}>
+            <Col lg={4} md={6} sm={12} key={ind}>
               {" "}
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={item.image} />

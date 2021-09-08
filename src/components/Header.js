@@ -8,11 +8,11 @@ class Header extends Component {
   render() {
     return (
       <Row style={{padding:"20px" }}>
-        <Col lg={3}></Col>
-        <Col lg={3}>
-          <h1>Header</h1>
+        <Col lg={3} md={0} sm={0}></Col>
+        <Col lg={3} md={6} sm={12}>
+          <h1 style={{textAlign:"center"}}>Juices</h1>
         </Col>
-        <Col lg={6}>
+        <Col lg={6} md={6} sm={12}>
           <Nav
             style={{ display: "flex", fontSize: "20px", gap: "20px" }}
             activeKey="/home"
